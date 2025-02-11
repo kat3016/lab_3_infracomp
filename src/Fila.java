@@ -34,6 +34,7 @@ public class Fila {
     public synchronized Integer retirarCliente(){
         while(filaClientes.isEmpty()){
             try {
+                System.out.println("Entró al wait");
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -42,7 +43,7 @@ public class Fila {
 
         HashMap<String, Integer> cliente = filaClientes.getLast();
         Integer uid = cliente.get("uid");   
-        filaClientes.remove("uid");
+        filaClientes.remove(cliente);
         return uid;
         }
  }

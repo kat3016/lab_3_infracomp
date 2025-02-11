@@ -23,7 +23,7 @@ public class Cajero extends Thread {
                 e.printStackTrace();
             }
         System.out.println("El cajero" + id + " atiende al cliente " +
-                cliente.get("id")  + "(tiempo de procesamiento base: " + cliente.get("procesamientoBasico") + "ms) factor de cansancio actual: "
+                cliente.get("uid")  + "(tiempo de procesamiento base: " + cliente.get("procesamientoBasico") + "ms) factor de cansancio actual: "
                 +  factorDeCansancio + " tiempo de procesamiento actual: "+ tiempoDeProcesamiento);
     }
 }

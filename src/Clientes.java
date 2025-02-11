@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.HashMap;
 
-public class Clientes {
+public class Clientes extends Thread {
 
     private Integer numeroDeClientes;
 
@@ -9,8 +9,9 @@ public class Clientes {
         this.numeroDeClientes = numeroDeClientes;
     }
 
-    public void creacionClientes(){
+    public void run(){
         for(int i= 0; i < numeroDeClientes; i++){
+            System.out.println("Creando cliente " + i);
             Integer procesamientoBasico = new Random().nextInt(2000);
             
             // Adicionar un cliente a la fila
