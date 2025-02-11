@@ -1,7 +1,7 @@
 public class App {
 
     public static Fila fila = new Fila();
-    public static int numero_cajeros = 3; 
+    public static int numero_cajeros = 5; 
     public static int numero_clientes = 4;
     public static void main(String[] args) throws Exception {
         
@@ -10,5 +10,8 @@ public class App {
         }
         
         Fila fila = new Fila();
+
+        Clientes clientes = new Clientes( numero_clientes, fila);
+
     }
 }
