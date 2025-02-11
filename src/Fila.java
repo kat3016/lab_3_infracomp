@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Fila {
     
-    public static ArrayList<HashMap<String, Integer>> filaClientes;
+    public static ArrayList<HashMap<String, Integer>> filaClientes = new ArrayList<HashMap<String, Integer>>();
 
     public Fila() {
     }

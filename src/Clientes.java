@@ -4,11 +4,9 @@ import java.util.HashMap;
 public class Clientes {
 
     private Integer numeroDeClientes;
-    private Fila fila; 
 
-    public Clientes(Integer numeroDeClientes, Fila fila) {
+    public Clientes(Integer numeroDeClientes) {
         this.numeroDeClientes = numeroDeClientes;
-        this.fila = fila;
     }
 
     public void creacionClientes(){
@@ -20,7 +18,7 @@ public class Clientes {
             
             cliente.put("uid", i);
             cliente.put("procesamientoBasico", procesamientoBasico);
-            fila.agregarCliente(cliente);
+            App.fila.agregarCliente(cliente);
             
             // Impresión de la creación de un cliente
             System.out.println("Cliente " + i + " agregado a la fila (tiempo de procesamiento: " + procesamientoBasico + "ms)");

@@ -5,13 +5,12 @@ public class App {
     public static int numero_clientes = 4;
     public static void main(String[] args) throws Exception {
         
+        Clientes generadorClientes = new Clientes(numero_clientes);
+
         for(int i = 0; i < numero_cajeros ; i++){
             Cajero cajero = new Cajero(i);
+            cajero.start();
         }
         
-        Fila fila = new Fila();
-
-        Clientes clientes = new Clientes( numero_clientes, fila);
-
     }
 }

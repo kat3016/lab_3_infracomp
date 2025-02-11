@@ -2,7 +2,6 @@ import java.util.HashMap;
 
 public class Cajero extends Thread {
     private Integer id;
-    private Fila fila;
     private Double factorDeCansancio = 1.0;
 
     public Cajero(Integer id) {
@@ -10,8 +9,9 @@ public class Cajero extends Thread {
     }
 
     public void run(){
-        Integer cliente_uid = fila.retirarCliente();
-        HashMap<String, Integer> cliente = fila.atenderCliente(cliente_uid);
+        System.out.println("Cajero " + id + " iniciado");
+        Integer cliente_uid = App.fila.retirarCliente();
+        HashMap<String, Integer> cliente = App.fila.atenderCliente(cliente_uid);
         if(cliente != null) {
             Double tiempoDeProcesamiento =cliente.get("procesamientoBasico")* factorDeCansancio;
             Double tiempoDormir= cliente.get("procesamientoBasico")*0.01 + factorDeCansancio;
