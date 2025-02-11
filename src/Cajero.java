@@ -10,14 +10,14 @@ public class Cajero extends Thread {
     }
 
     public void run(){
-        fila.retirarCliente();
-        HashMap<String, Integer> cliente = fila.atenderCliente();
+        Integer cliente_uid = fila.retirarCliente();
+        HashMap<String, Integer> cliente = fila.atenderCliente(cliente_uid);
         if(cliente != null) {
             Double tiempoDeProcesamiento =cliente.get("procesamientoBasico")* factorDeCansancio;
             Double tiempoDormir= cliente.get("procesamientoBasico")*0.01 + factorDeCansancio;
             
             try {
-                Thread.sleep((long) tiempoDormir); 
+                Thread.sleep(tiempoDormir.longValue()); 
             
             } catch (InterruptedException e) {  
                 e.printStackTrace();
@@ -26,4 +26,5 @@ public class Cajero extends Thread {
                 cliente.get("id")  + "(tiempo de procesamiento base: " + cliente.get("procesamientoBasico") + "ms) factor de cansancio actual: "
                 +  factorDeCansancio + " tiempo de procesamiento actual: "+ tiempoDeProcesamiento);
     }
+}
 }
